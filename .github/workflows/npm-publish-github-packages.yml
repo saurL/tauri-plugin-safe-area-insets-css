@@ -18,9 +18,10 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g pnpm
-      - run: npm run pretest
-      - run: npm ci
-      - run: npm test
+      - run: pnpm i
+      - run: pnpm run pretest
+      - run: pnpm ci
+      - run: pnpm test
 
   publish-gpr:
     needs: build
@@ -34,8 +35,8 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
-      - run: npm run prepublishOnly
-      - run: npm ci
-      - run: npm publish --dry-run --provenance --access public
+      - run: pnpm run prepublishOnly
+      - run: pnpm ci
+      - run: pnpm publish --dry-run --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
