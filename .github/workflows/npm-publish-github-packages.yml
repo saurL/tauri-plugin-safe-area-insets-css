@@ -18,9 +18,8 @@ jobs:
         with:
           node-version: 20
       - run: npm install -g pnpm
-      - run: pnpm i
+      - run: pnpm install --frozen-lockfile
       - run: pnpm run pretest
-      - run: pnpm ci
       - run: pnpm test
 
   publish-gpr:
@@ -35,8 +34,9 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
+      
+      - run: pnpm install --frozen-lockfile
       - run: pnpm run prepublishOnly
-      - run: pnpm ci
       - run: pnpm publish --dry-run --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
