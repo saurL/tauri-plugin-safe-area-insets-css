@@ -21,7 +21,7 @@
     "prepublishOnly": "pnpm build",
     "pretest": "pnpm build",
     "test": "echo \"No tests yet\"",
-    "prepare": "pnpm i & pnpm build"
+    "prepare": "pnpm build"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.5.0"
