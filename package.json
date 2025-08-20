@@ -20,7 +20,7 @@
     "build": "rollup -c",
     "prepublishOnly": "pnpm build",
     "pretest": "pnpm build",
-    "prepare": "pnpm build"
+    "prepare": "pnpm i & pnpm build"
   },
   "dependencies": {
     "@tauri-apps/api": ">=2.0.0-beta.6"
