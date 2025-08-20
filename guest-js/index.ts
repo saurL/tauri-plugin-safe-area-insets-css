@@ -55,7 +55,7 @@ async function init() {
   });
 }
 
-async function waitForTauriLoaded() {
+async function waitForTauritoLoad() {
   while (typeof (window as any).__TAURI_INTERNALS__ === "undefined") {
     await new Promise((resolve) => setTimeout(resolve, 50)); // check toutes les 50ms
   }
@@ -63,4 +63,4 @@ async function waitForTauriLoaded() {
   console.log("Tauri ready, lancement de init()");
   init();
 }
-waitForTauriLoaded()
+waitForTauritoLoad()
