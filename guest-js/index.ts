@@ -36,7 +36,7 @@ export async function onKeyboardHidden(
   );
 }
 
-export default async function init() {
+async function init() {
   const topInset = await getTopInset();
   const bottomInset = await getBottomInset();
   if (topInset) {
@@ -54,3 +54,13 @@ export default async function init() {
     document.documentElement.style.setProperty('--safe-area-inset-bottom', `${bottomInset?.inset}px`);
   });
 }
+
+async function waitForTauriLoaded() {
+  while (typeof (window as any).__TAURI_INTERNALS__ === "undefined") {
+    await new Promise((resolve) => setTimeout(resolve, 50)); // check toutes les 50ms
+  }
+
+  console.log("Tauri ready, lancement de init()");
+  init();
+}
+waitForTauriLoaded()
