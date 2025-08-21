@@ -45,7 +45,7 @@ class InsetPlugin: Plugin {
     let topInsetDIP = toDIPFromPixel(topInset)
     logger.info("Top inset: \(topInsetDIP)")
 
-    invoke.resolve(["inset": topInsetDIP])
+    invoke.resolve(["inset": topInset])
   }
 
   // MARK: - Commande: obtenir le bottom inset (home indicator / nav bar)
@@ -54,7 +54,7 @@ class InsetPlugin: Plugin {
     let bottomInset = window?.safeAreaInsets.bottom ?? 0
     let bottomInsetDIP = toDIPFromPixel(bottomInset)
     logger.info("Bottom inset: \(bottomInsetDIP)")
-    invoke.resolve(["inset": bottomInsetDIP])
+    invoke.resolve(["inset": bottomInset])
   }
 
   // MARK: - Conversion PX -> DIP
