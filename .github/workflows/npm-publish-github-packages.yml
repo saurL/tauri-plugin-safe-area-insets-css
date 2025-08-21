@@ -32,10 +32,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org/
       - run: npm install -g pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm run prepublishOnly
-      - run: pnpm publish --dry-run --provenance --access public
+      - run: pnpm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
