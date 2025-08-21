@@ -1,6 +1,6 @@
 [package]
 name = "tauri-plugin-safe-area-insets-css"
-version = "0.1.0"
+version = "0.2.0"
 authors = [ "saurL" ]
 description = "A Tauri plugin to provide safe area insets CSS variables for mobile apps."
 edition = "2021"
