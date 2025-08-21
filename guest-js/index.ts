@@ -1,5 +1,4 @@
 import { invoke,addPluginListener, PluginListener } from '@tauri-apps/api/core'
-import { info } from '@tauri-apps/plugin-log';
 interface GetInsetResponse {
   inset: number
 }
@@ -56,13 +55,9 @@ async function init() {
 }
 
 async function waitForTauritoLoad() {
-  info("en attente du lancement de Tauri...");
   while (typeof (window as any).__TAURI_INTERNALS__ === "undefined") {
-    info("Tauri n'est pas encore prêt, attente...");
     await new Promise((resolve) => setTimeout(resolve, 50)); // check toutes les 50ms
   }
-
-  info("Tauri ready, lancement de init()");
   init();
 }
 waitForTauritoLoad()
