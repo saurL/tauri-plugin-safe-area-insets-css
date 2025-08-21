@@ -2,6 +2,10 @@ import SwiftRs
 import Tauri
 import UIKit
 import WebKit
+import os
+
+let logger = Logger(subsystem: "com.plugin.safe.area.insets.css", category: "InsetPlugin")
+
 
 
 class InsetPlugin: Plugin {
@@ -40,6 +44,8 @@ class InsetPlugin: Plugin {
     let window = UIApplication.shared.windows.first
     let topInset = window?.safeAreaInsets.top ?? 0
     let topInsetDIP = toDIPFromPixel(topInset)
+    logger.info("Top inset: \(topInsetDIP)")
+
     invoke.resolve(["inset": topInsetDIP])
   }
 
@@ -48,6 +54,7 @@ class InsetPlugin: Plugin {
     let window = UIApplication.shared.windows.first
     let bottomInset = window?.safeAreaInsets.bottom ?? 0
     let bottomInsetDIP = toDIPFromPixel(bottomInset)
+    logger.info("Bottom inset: \(bottomInsetDIP)")
     invoke.resolve(["inset": bottomInsetDIP])
   }
 
