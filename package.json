@@ -10,6 +10,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/saurL/tauri-plugin-safe-area-insets-css.git"
+  },
   "exports": {
     "types": "./dist-js/index.d.ts",
     "import": "./dist-js/index.js",
