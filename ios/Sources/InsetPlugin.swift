@@ -12,7 +12,6 @@ class InsetPlugin: Plugin {
 
   // MARK: - Chargement du plugin
   override func load(webview: WKWebView) {
-    super.load(webview)
 
     // Observer les notifications du clavier (équivalent de setOnApplyWindowInsetsListener sur Android)
     NotificationCenter.default.addObserver(
@@ -32,11 +31,11 @@ class InsetPlugin: Plugin {
 
   // MARK: - Gestion clavier
   @objc func keyboardWillShow(notification: Notification) {
-    trigger("keyboard_shown", [:])
+    trigger("keyboard_shown", data: [:])
   }
 
   @objc func keyboardWillHide(notification: Notification) {
-    trigger("keyboard_hidden", [:])
+    trigger("keyboard_hidden", data: [:])
   }
 
   // MARK: - Commande: obtenir le top inset (status bar / notch)
